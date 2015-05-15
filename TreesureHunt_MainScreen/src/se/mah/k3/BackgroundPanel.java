@@ -4,7 +4,7 @@ package se.mah.k3;
 // https://tips4java.wordpress.com/2008/10/12/background-panel/
 // Rob Camick
 
-import java.awt.*;
+import java.awt.*; 
 import java.awt.image.*;
 import javax.swing.*;
 

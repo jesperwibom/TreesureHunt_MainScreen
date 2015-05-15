@@ -24,6 +24,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+//THIS IS ONLY FOR TESTING
+
 public class GUItest extends JFrame implements KeyEventDispatcher{
 	
 	

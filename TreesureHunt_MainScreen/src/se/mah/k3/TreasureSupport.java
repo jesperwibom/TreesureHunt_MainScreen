@@ -127,5 +127,5 @@ public class TreasureSupport {
 	public int getActiveTreasureCounter(){
 		return activeTreasureCounter;
 	}
-	
+	 
 }

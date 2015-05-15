@@ -7,7 +7,7 @@ public class Treasure {
 	private String id;
 	private int type;
 	private int posX;
-	private int posY;
+	private int posY; 
 	
 	//Constructor
 	public Treasure(String id, int posX, int posY){	

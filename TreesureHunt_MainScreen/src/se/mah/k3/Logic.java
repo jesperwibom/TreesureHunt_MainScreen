@@ -5,7 +5,7 @@ public class Logic {
 	
 	//////////////////////////////////////////////////
 	// Class variables
-	//
+	// 
 	
 	private TreasureSupport treasureSupport;
 	private FireSupport fireSupport;

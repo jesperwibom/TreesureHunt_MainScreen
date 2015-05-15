@@ -9,7 +9,7 @@ public class Constants {
 	public static final int MAX_ACTIVE = 3;
 	
 	//Number of different types of treasure
-	public static final int NBR_TYPES = 3;
+	public static final int NBR_TYPES = 3; 
 	
 	//Our firebase url
 	//public static final String FIREBASE_URL = "https://blinding-torch-9917.firebaseio.com/";
