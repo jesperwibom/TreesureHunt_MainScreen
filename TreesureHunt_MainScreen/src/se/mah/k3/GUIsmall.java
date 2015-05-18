@@ -20,8 +20,8 @@ public class GUIsmall extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel background_panel;
-	private JPanel side_panel;
-	private JPanel map_panel;
+	
+	private JLabel logo_label;
 	private JLabel map_label;
 	private JLabel instruction_label;
 	private JLabel marker_label;
@@ -76,6 +76,12 @@ public class GUIsmall extends JFrame {
 		map_label.setBounds(0, 0, (int) (screenSize[0]*0.75), screenSize[1]);
 		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance((int) (screenSize[0]*0.75), screenSize[1], Image.SCALE_SMOOTH)));
 		background_panel.add(map_label);
+		
+		logo_label = new JLabel();
+		logo_label.setBounds(730, 40, 100, 130);
+		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(100, 130, Image.SCALE_SMOOTH)));
+		background_panel.add(logo_label);
+		
 		
 		/*
 		
