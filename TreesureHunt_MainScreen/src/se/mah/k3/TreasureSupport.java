@@ -10,7 +10,7 @@ public class TreasureSupport {
 	// Class variables
 	//
 	
-	private static Vector<Treasure> treasureLocations = new Vector<Treasure>(); //Stores all Treasure objects	
+	public static Vector<Treasure> treasureLocations = new Vector<Treasure>(); //Stores all Treasure objects	
 	private static int activeTreasureCounter = 0;
 	
 	public String lastChangedTreasureId = "";

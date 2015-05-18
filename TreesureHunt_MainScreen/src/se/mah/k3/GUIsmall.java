@@ -7,7 +7,9 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Vector;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -29,6 +31,8 @@ public class GUIsmall extends JFrame {
 	private JLabel map_label;
 	private JLabel instruction_label;
 	private JLabel marker_label;
+	
+	private ArrayList<JLabel> markerLbl;
 	
 	//Screen variables
 	private int[] screenSize = {853,480};
@@ -76,6 +80,14 @@ public class GUIsmall extends JFrame {
 		contentPane.add(background_panel, BorderLayout.CENTER);
 		background_panel.setLayout(null);
 		
+		markerLbl = new ArrayList<JLabel>();
+		for(int i = 0; i < Constants.MAX_ACTIVE; i++){
+			markerLbl.add(new JLabel());
+			markerLbl.get(i).setBounds(426,260,100,100);
+			markerLbl.get(i).setIcon(new ImageIcon(markerImg.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
+			background_panel.add(markerLbl.get(i));
+		}
+		
 		marker_label = new JLabel();
 		marker_label.setBounds(540,300,100,100);
 		marker_label.setIcon(new ImageIcon(markerImg.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
@@ -98,6 +110,14 @@ public class GUIsmall extends JFrame {
 				while(true){
 					if(Constants.DEBUG){System.out.println("UpdateThread runs!!!!!!!!!!");}
 					
+					Vector<Treasure> tempLocations = TreasureSupport.treasureLocations;
+					int markerCount = 0;
+					for(Treasure t : tempLocations){
+						if(t.checkActive()){
+							markerLbl.get(markerCount).setLocation(t.getPosX(),t.getPosY());
+							markerCount++;
+						}
+					}
 					
 					Random rand = new Random();
 					marker_label.setLocation(rand.nextInt(300),rand.nextInt(300));
