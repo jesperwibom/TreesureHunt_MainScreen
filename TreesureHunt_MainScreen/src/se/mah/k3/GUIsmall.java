@@ -43,10 +43,8 @@ public class GUIsmall extends JFrame {
 	private BufferedImage logoImg;
 	private BufferedImage mapImg;
 	private BufferedImage markerImg;
+	private ImageIcon loaderAni;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() { 
 			public void run() {
@@ -61,9 +59,6 @@ public class GUIsmall extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public GUIsmall() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(screenPlacement[0], screenPlacement[1], screenSize[0], screenSize[1]);
@@ -83,15 +78,19 @@ public class GUIsmall extends JFrame {
 		markerLbl = new ArrayList<JLabel>();
 		for(int i = 0; i < Constants.MAX_ACTIVE; i++){
 			markerLbl.add(new JLabel());
-			markerLbl.get(i).setBounds(426,260,100,100);
+			markerLbl.get(i).setBounds(0,0,100,100);
 			markerLbl.get(i).setIcon(new ImageIcon(markerImg.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
 			background_panel.add(markerLbl.get(i));
 		}
 		
+		
 		marker_label = new JLabel();
-		marker_label.setBounds(540,300,100,100);
-		marker_label.setIcon(new ImageIcon(markerImg.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
+		marker_label.setBounds(780,360,100,100);
+		marker_label.setIcon(loaderAni);
 		background_panel.add(marker_label);
+		
+		
+		
 		
 		map_label = new JLabel();
 		map_label.setBounds(0, 0, (int) (screenSize[0]*0.75), screenSize[1]);
@@ -119,14 +118,10 @@ public class GUIsmall extends JFrame {
 						}
 					}
 					
-					Random rand = new Random();
-					marker_label.setLocation(rand.nextInt(300),rand.nextInt(300));
-					
 					
 					try {
-						sleep(2500);
+						sleep(3000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
@@ -139,6 +134,7 @@ public class GUIsmall extends JFrame {
 		
 		logic = new Logic();	
 	}
+	
 	
 	public void loadResources(){
 		try {
@@ -168,20 +164,9 @@ public class GUIsmall extends JFrame {
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("mapImg not found");}
 		}
+		
+		loaderAni = new ImageIcon("res/loader.gif");
+		
 	}
 
-	
-	/*
-	public static void drawFrame(){
-		
-		//Draw background
-		
-		//repaint(); //??
-		
-		//drawMarkers();
-		
-		//Draw frame
-		
-	}
-	*/
 }
