@@ -73,9 +73,12 @@ public class FireSupport {
 						if(Constants.DEBUG){System.out.println("New activeTreasureCount: "+treasureSupport.getActiveTreasureCounter());}
 						//Updates firebase with new data
 						setData(treasureSupport.lastChangedTreasureId, treasureSupport.lastChangedTreasureType);
-						//Draw markers
+						
+						
+						//Draw markers (TA BORT)
 						//GUItest.drawFrame();
-						GUIsmall.drawFrame();
+						//GUIsmall.drawFrame();
+						
 					}
 					
 					//Debug message

@@ -12,9 +12,9 @@ public class Constants {
 	public static final int NBR_TYPES = 3; 
 	
 	//Our firebase url
-	public static final String FIREBASE_URL = "https://blinding-torch-9917.firebaseio.com/";
+	//public static final String FIREBASE_URL = "https://blinding-torch-9917.firebaseio.com/";
 	
 	//My firebase url (do not use, only for my own testing :D )
-	//public static final String FIREBASE_URL = "https://boiling-heat-8172.firebaseio.com/";
+	public static final String FIREBASE_URL = "https://boiling-heat-8172.firebaseio.com/";
 	
 }

@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -18,6 +19,9 @@ import javax.swing.border.EmptyBorder;
 public class GUIsmall extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	
+	private Logic logic;
+	
 	private JPanel contentPane;
 	private JPanel background_panel;
 	
@@ -72,6 +76,11 @@ public class GUIsmall extends JFrame {
 		contentPane.add(background_panel, BorderLayout.CENTER);
 		background_panel.setLayout(null);
 		
+		marker_label = new JLabel();
+		marker_label.setBounds(540,300,100,100);
+		marker_label.setIcon(new ImageIcon(markerImg.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
+		background_panel.add(marker_label);
+		
 		map_label = new JLabel();
 		map_label.setBounds(0, 0, (int) (screenSize[0]*0.75), screenSize[1]);
 		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance((int) (screenSize[0]*0.75), screenSize[1], Image.SCALE_SMOOTH)));
@@ -83,20 +92,32 @@ public class GUIsmall extends JFrame {
 		background_panel.add(logo_label);
 		
 		
-		/*
 		
 		Thread updateThread = new Thread("UpdateThread"){
 			public void run(){
-				if(Constants.DEBUG){System.out.println("UpdateThread runs!!!!!!!!!!");}
-				
+				while(true){
+					if(Constants.DEBUG){System.out.println("UpdateThread runs!!!!!!!!!!");}
+					
+					
+					Random rand = new Random();
+					marker_label.setLocation(rand.nextInt(300),rand.nextInt(300));
+					
+					
+					try {
+						sleep(2500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 			}
 		};
 		updateThread.start();
 		
-		*/
 		
 		
-		//Logic logic = new Logic();	
+		
+		logic = new Logic();	
 	}
 	
 	public void loadResources(){
@@ -129,6 +150,8 @@ public class GUIsmall extends JFrame {
 		}
 	}
 
+	
+	/*
 	public static void drawFrame(){
 		
 		//Draw background
@@ -140,5 +163,5 @@ public class GUIsmall extends JFrame {
 		//Draw frame
 		
 	}
-	
+	*/
 }
