@@ -119,7 +119,7 @@ public class GUItest extends JFrame implements KeyEventDispatcher{
 		
 		
 		//Create the logic object that in turn create FireSupport and TreasureSupport objects
-		Logic logic = new Logic();
+		//Logic logic = new Logic();
 		drawFrame(); //??
 		
 		//Creates a thread that will update the markers(?)
