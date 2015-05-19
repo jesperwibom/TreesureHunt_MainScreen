@@ -94,7 +94,7 @@ public class GUImedium extends JFrame {
 	
 	public void loadResources(){
 		try {
-			backgroundImg = ImageIO.read(new File("res/background.jpg"));
+			backgroundImg = ImageIO.read(new File("res/backgroundscreen.png"));
 			if(Constants.DEBUG){System.out.println("backgroundImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("backgroundImg not found");}
