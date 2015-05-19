@@ -10,7 +10,7 @@ public class TreasureSupport {
 	// Class variables
 	//
 	
-	private static Vector<Treasure> treasureLocations = new Vector<Treasure>(); //Stores all Treasure objects	
+	public static Vector<Treasure> treasureLocations = new Vector<Treasure>(); //Stores all Treasure objects	
 	private static int activeTreasureCounter = 0;
 	
 	public String lastChangedTreasureId = "";
@@ -30,11 +30,11 @@ public class TreasureSupport {
 	
 	//Run in the start of the application. Every added new TreasureLocation is initialized with id, x position and y position
 	public void setupTreasureLocations(){	
-		treasureLocations.add(new Treasure("TL01",10,10));
-		treasureLocations.add(new Treasure("TL02",20,20));
-		treasureLocations.add(new Treasure("TL03",50,50));
-		treasureLocations.add(new Treasure("TL04",100,100));
-		treasureLocations.add(new Treasure("TL05",300,100));
+		treasureLocations.add(new Treasure("TL01",100,100));
+		treasureLocations.add(new Treasure("TL02",200,150));
+		treasureLocations.add(new Treasure("TL03",50,300));
+		treasureLocations.add(new Treasure("TL04",400,250));
+		treasureLocations.add(new Treasure("TL05",500,300));
 	}
 	
 	//Generates ONE active treasure
