@@ -36,13 +36,12 @@ public class GUImedium extends JFrame {
 	private JLabel logo_label;
 	private JLabel map_label;
 	private JLabel instruction_label;
-	private JLabel marker_label;
 	private JLabel background_label;
 	
 	private ArrayList<JLabel> markerLbl;
 	
 	//Screen variables
-	private int[] screenSize = {853,480};
+	private int[] screenSize = {1024,576};
 	private int[] screenPlacement = {100,100};
 	
 	//Resource variables
@@ -136,12 +135,6 @@ public class GUImedium extends JFrame {
 		contentPane.add(background_panel, BorderLayout.CENTER);
 		background_panel.setLayout(null);
 		
-		/*
-		background_panel = new BackgroundPanel(backgroundImg);
-		contentPane.add(background_panel, BorderLayout.CENTER);
-		background_panel.setLayout(null);
-		*/
-		
 		markerLbl = new ArrayList<JLabel>();
 		for(int i = 0; i < Constants.MAX_ACTIVE; i++){
 			markerLbl.add(new JLabel());
@@ -149,12 +142,7 @@ public class GUImedium extends JFrame {
 			markerLbl.get(i).setIcon(new ImageIcon(markerImg.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
 			background_panel.add(markerLbl.get(i));
 		}
-		/*
-		marker_label = new JLabel();
-		marker_label.setBounds(780,360,100,100);
-		marker_label.setIcon(loaderAni);
-		background_panel.add(marker_label);
-		*/
+		
 		map_label = new JLabel();
 		map_label.setBounds(0, 0, (int) (screenSize[0]*0.75), screenSize[1]);
 		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance((int) (screenSize[0]*0.75), screenSize[1], Image.SCALE_SMOOTH)));
