@@ -41,7 +41,7 @@ public class GUImedium extends JFrame {
 	private ArrayList<JLabel> markerLbl;
 	
 	//Screen variables
-	private int[] screenSize = {853,480};
+	private int[] screenSize = {1024,568};
 	private int[] screenPlacement = {100,100};
 	
 	//Resource variables
