@@ -35,6 +35,7 @@ public class TreasureSupport {
 		treasureLocations.add(new Treasure("TL03",50,300));
 		treasureLocations.add(new Treasure("TL04",400,250));
 		treasureLocations.add(new Treasure("TL05",500,300));
+		treasureLocations.add(new Treasure("TL06",400,200));
 	}
 	
 	//Generates ONE active treasure
