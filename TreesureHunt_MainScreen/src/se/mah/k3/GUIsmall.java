@@ -41,7 +41,7 @@ public class GUIsmall extends JFrame {
 	private ArrayList<JLabel> markerLbl;
 	
 	//Screen variables
-	private int[] screenSize = {1024,576};
+	private int[] screenSize = {853,480};
 	private int[] screenPlacement = {100,100};
 	
 	//Resource variables
