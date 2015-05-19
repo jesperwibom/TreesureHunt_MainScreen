@@ -41,7 +41,7 @@ public class GUImedium extends JFrame {
 	private ArrayList<JLabel> markerLbl;
 	
 	//Screen variables
-	private int[] screenSize = {1024,568};
+	private int[] screenSize = {1024,576};
 	private int[] screenPlacement = {100,100};
 	
 	//Resource variables
@@ -94,7 +94,7 @@ public class GUImedium extends JFrame {
 	
 	public void loadResources(){
 		try {
-			backgroundImg = ImageIO.read(new File("res/backgroundscreen.jpg"));
+			backgroundImg = ImageIO.read(new File("res/background.jpg"));
 			if(Constants.DEBUG){System.out.println("backgroundImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("backgroundImg not found");}
