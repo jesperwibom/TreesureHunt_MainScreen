@@ -36,12 +36,12 @@ public class GUIsmall extends JFrame {
 	private JLabel logo_label;
 	private JLabel map_label;
 	private JLabel instruction_label;
-	private JLabel marker_label;
+	private JLabel background_label;
 	
 	private ArrayList<JLabel> markerLbl;
 	
 	//Screen variables
-	private int[] screenSize = {853,480};
+	private int[] screenSize = {1024,576};
 	private int[] screenPlacement = {100,100};
 	
 	//Resource variables
@@ -81,13 +81,10 @@ public class GUIsmall extends JFrame {
 		setResizable(false);
 		
 		loadResources();
-		logic = new Logic();	
 		setupFrameElements();
-		
-		
 		setupUpdateThread();
 		
-		
+		logic = new Logic();	
 	}
 	
 		
@@ -97,7 +94,7 @@ public class GUIsmall extends JFrame {
 	
 	public void loadResources(){
 		try {
-			backgroundImg = ImageIO.read(new File("res/background.jpg"));
+			backgroundImg = ImageIO.read(new File("res/backgroundscreen.png"));
 			if(Constants.DEBUG){System.out.println("backgroundImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("backgroundImg not found");}
@@ -134,7 +131,7 @@ public class GUIsmall extends JFrame {
 		contentPane.setLayout(new BorderLayout());
 		setContentPane(contentPane);
 		
-		background_panel = new BackgroundPanel(backgroundImg);
+		background_panel = new JPanel();
 		contentPane.add(background_panel, BorderLayout.CENTER);
 		background_panel.setLayout(null);
 		
@@ -146,11 +143,6 @@ public class GUIsmall extends JFrame {
 			background_panel.add(markerLbl.get(i));
 		}
 		
-		marker_label = new JLabel();
-		marker_label.setBounds(780,360,100,100);
-		marker_label.setIcon(loaderAni);
-		background_panel.add(marker_label);
-		
 		map_label = new JLabel();
 		map_label.setBounds(0, 0, (int) (screenSize[0]*0.75), screenSize[1]);
 		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance((int) (screenSize[0]*0.75), screenSize[1], Image.SCALE_SMOOTH)));
@@ -160,6 +152,12 @@ public class GUIsmall extends JFrame {
 		logo_label.setBounds(730, 40, 100, 130);
 		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(100, 130, Image.SCALE_SMOOTH)));
 		background_panel.add(logo_label);
+		
+		background_label = new JLabel();
+		background_label.setBounds(0,0,screenSize[0],screenSize[1]);
+		background_label.setIcon(new ImageIcon(backgroundImg.getScaledInstance(screenSize[0], screenSize[1], Image.SCALE_SMOOTH)));
+		background_panel.add(background_label);
+		
 	}
 	
 	public void setupUpdateThread(){
@@ -182,7 +180,6 @@ public class GUIsmall extends JFrame {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					
 				}
 			}
 		};
@@ -190,3 +187,4 @@ public class GUIsmall extends JFrame {
 	}
 
 }
+
