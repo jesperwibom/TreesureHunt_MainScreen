@@ -81,10 +81,13 @@ public class GUIsmall extends JFrame {
 		setResizable(false);
 		
 		loadResources();
+		logic = new Logic();	
 		setupFrameElements();
+		
+		
 		setupUpdateThread();
 		
-		logic = new Logic();	
+		
 	}
 	
 		
@@ -179,6 +182,7 @@ public class GUIsmall extends JFrame {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
+					
 				}
 			}
 		};
