@@ -115,7 +115,7 @@ public class GUImedium extends JFrame {
 		}
 		
 		try {
-			mapImg = ImageIO.read(new File("res/map.png"));
+			mapImg = ImageIO.read(new File("res/mapscreen.png"));
 			if(Constants.DEBUG){System.out.println("mapImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("mapImg not found");}
@@ -144,8 +144,8 @@ public class GUImedium extends JFrame {
 		}
 		
 		map_label = new JLabel();
-		map_label.setBounds(0, 0, (int) (screenSize[0]*0.75), screenSize[1]);
-		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance((int) (screenSize[0]*0.75), screenSize[1], Image.SCALE_SMOOTH)));
+		map_label.setBounds(0, 0, (int) (screenSize[0]*0.75), (int) (screenSize[1]*0.75));
+		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance((int) (screenSize[0]*0.75),  (int) (screenSize[1]*0.75), Image.SCALE_SMOOTH)));
 		background_panel.add(map_label);
 		
 		logo_label = new JLabel();
