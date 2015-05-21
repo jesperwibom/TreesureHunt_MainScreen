@@ -101,7 +101,7 @@ public class GUImedium extends JFrame {
 		}
 		
 		try {
-			logoImg = ImageIO.read(new File("res/logo.png"));
+			logoImg = ImageIO.read(new File("res/logoscreen.png"));
 			if(Constants.DEBUG){System.out.println("logoImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("logoImg not found");}
@@ -144,17 +144,17 @@ public class GUImedium extends JFrame {
 		}
 		
 		map_label = new JLabel();
-		map_label.setBounds(0, 0, (int) (screenSize[0]*0.75), (int) (screenSize[1]*0.75));
+		map_label.setBounds(25, 50, (int) (screenSize[0]*0.75), (int) (screenSize[1]*0.75));
 		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance((int) (screenSize[0]*0.75),  (int) (screenSize[1]*0.75), Image.SCALE_SMOOTH)));
 		background_panel.add(map_label);
 		
 		logo_label = new JLabel();
-		logo_label.setBounds(730, 40, 100, 130);
-		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(100, 130, Image.SCALE_SMOOTH)));
+		logo_label.setBounds(850, 400, 150, 150 );
+		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
 		background_panel.add(logo_label);
 		
 		background_label = new JLabel();
-		background_label.setBounds(0,0,screenSize[0],screenSize[1]);
+		background_label.setBounds(-30,-30,screenSize[0],screenSize[1]);
 		background_label.setIcon(new ImageIcon(backgroundImg.getScaledInstance(screenSize[0], screenSize[1], Image.SCALE_SMOOTH)));
 		background_panel.add(background_label);
 		
