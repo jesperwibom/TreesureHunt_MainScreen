@@ -184,13 +184,13 @@ public class GUImedium extends JFrame {
 		background_panel.add(logo_label);
 		
 		text_label = new JLabel();
-		text_label.setBounds(850, 225, 150, 150 );
-		text_label.setIcon(new ImageIcon(textImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+		text_label.setBounds(850, 250, 129, 84 );
+		text_label.setIcon(new ImageIcon(textImg.getScaledInstance(129, 84, Image.SCALE_SMOOTH)));
 		background_panel.add(text_label);
 		
 		name_label = new JLabel();
-		name_label.setBounds(250, 15, 250, 60 );
-		name_label.setIcon(new ImageIcon(nameImg.getScaledInstance(250, 60, Image.SCALE_SMOOTH)));
+		name_label.setBounds(250, 20, 230, 35 );
+		name_label.setIcon(new ImageIcon(nameImg.getScaledInstance(230, 35, Image.SCALE_SMOOTH)));
 		background_panel.add(name_label);
 	
 		background_label = new JLabel();
