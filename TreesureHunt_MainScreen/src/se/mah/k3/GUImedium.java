@@ -108,7 +108,7 @@ public class GUImedium extends JFrame {
 		}
 		
 		try {
-			markerImg = ImageIO.read(new File("res/marker.png"));
+			markerImg = ImageIO.read(new File("res/markerscreen.png"));
 			if(Constants.DEBUG){System.out.println("markerImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("markerImg not found");}
@@ -154,7 +154,7 @@ public class GUImedium extends JFrame {
 		background_panel.add(logo_label);
 		
 		background_label = new JLabel();
-		background_label.setBounds(-30,-30,screenSize[0],screenSize[1]);
+		background_label.setBounds(0,0,screenSize[0],screenSize[1]);
 		background_label.setIcon(new ImageIcon(backgroundImg.getScaledInstance(screenSize[0], screenSize[1], Image.SCALE_SMOOTH)));
 		background_panel.add(background_label);
 		
