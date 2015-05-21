@@ -3,6 +3,7 @@ package se.mah.k3;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -33,10 +34,12 @@ public class GUImedium extends JFrame {
 	private JPanel contentPane;
 	private JPanel background_panel;
 	
+	
 	private JLabel logo_label;
 	private JLabel map_label;
 	private JLabel instruction_label;
 	private JLabel background_label;
+	private JLabel text_label;
 	
 	private ArrayList<JLabel> markerLbl;
 	
@@ -49,6 +52,8 @@ public class GUImedium extends JFrame {
 	private BufferedImage logoImg;
 	private BufferedImage mapImg;
 	private BufferedImage markerImg;
+	private BufferedImage instructionImg;
+	private BufferedImage textImg;
 	private ImageIcon loaderAni;
 
 	
@@ -120,6 +125,18 @@ public class GUImedium extends JFrame {
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("mapImg not found");}
 		}
+		try {
+			instructionImg = ImageIO.read(new File("res/instructionscreen.png"));
+			if(Constants.DEBUG){System.out.println("mapImg loaded");}
+		} catch (IOException e) {
+			if(Constants.DEBUG){System.out.println("mapImg not found");}
+		}
+		try {
+			textImg = ImageIO.read(new File("res/textscreen.png"));
+			if(Constants.DEBUG){System.out.println("mapImg loaded");}
+		} catch (IOException e) {
+			if(Constants.DEBUG){System.out.println("mapImg not found");}
+		}
 		
 		loaderAni = new ImageIcon("res/loader.gif");
 		
@@ -143,13 +160,18 @@ public class GUImedium extends JFrame {
 			background_panel.add(markerLbl.get(i));
 		}
 		
+		instruction_label = new JLabel();
+		instruction_label.setBounds(850, 50, 150, 150 );
+		instruction_label.setIcon(new ImageIcon(instructionImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+		background_panel.add(instruction_label);
+		
 		map_label = new JLabel();
-		map_label.setBounds(25, 50, (int) (screenSize[0]*0.75), (int) (screenSize[1]*0.75));
+		map_label.setBounds(25, 100, (int) (screenSize[0]*0.75), (int) (screenSize[1]*0.75));
 		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance((int) (screenSize[0]*0.75),  (int) (screenSize[1]*0.75), Image.SCALE_SMOOTH)));
 		background_panel.add(map_label);
 		
 		logo_label = new JLabel();
-		logo_label.setBounds(850, 400, 150, 150 );
+		logo_label.setBounds(850, 350, 150, 150 );
 		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
 		background_panel.add(logo_label);
 		
@@ -157,6 +179,12 @@ public class GUImedium extends JFrame {
 		background_label.setBounds(0,0,screenSize[0],screenSize[1]);
 		background_label.setIcon(new ImageIcon(backgroundImg.getScaledInstance(screenSize[0], screenSize[1], Image.SCALE_SMOOTH)));
 		background_panel.add(background_label);
+		
+		text_label = new JLabel();
+		text_label.setBounds(850, 250, 150, 150 );
+		text_label.setIcon(new ImageIcon(textImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+		background_panel.add(text_label);
+		
 		
 	}
 	
