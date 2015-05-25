@@ -147,7 +147,7 @@ public class GUImedium extends JFrame {
 			if(Constants.DEBUG){System.out.println("nameImg not found");}
 		}
 		
-		markerAni = new ImageIcon("res/markerTest.gif");
+		markerAni = new ImageIcon("res/markerAni/loader3.gif");
 		loaderAni = new ImageIcon("res/loader.gif");
 		
 	}
