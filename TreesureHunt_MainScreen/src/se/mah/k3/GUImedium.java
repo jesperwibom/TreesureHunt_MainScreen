@@ -109,7 +109,7 @@ public class GUImedium extends JFrame {
 		}
 		
 		try {
-			logoImg = ImageIO.read(new File("res/logoscreen.png"));
+			logoImg = ImageIO.read(new File("res/logo.png"));
 			if(Constants.DEBUG){System.out.println("logoImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("logoImg not found");}
@@ -142,7 +142,7 @@ public class GUImedium extends JFrame {
 			if(Constants.DEBUG){System.out.println("nameImg not found");}
 		}
 		
-		markerAni = new ImageIcon("res/markerAni/markerTest3.gif");
+		markerAni = new ImageIcon("res/waveRadar.gif");
 		loaderAni = new ImageIcon("res/loader.gif");
 		
 	}
@@ -160,14 +160,14 @@ public class GUImedium extends JFrame {
 		markerLbl = new ArrayList<JLabel>();
 		for(int i = 0; i < Constants.MAX_ACTIVE; i++){
 			markerLbl.add(new JLabel());
-			markerLbl.get(i).setBounds(0,0,100,100);
+			markerLbl.get(i).setBounds(0,0,200,200);
 			//markerLbl.get(i).setIcon(new ImageIcon(markerImg.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
 			markerLbl.get(i).setIcon(markerAni);
 			background_panel.add(markerLbl.get(i));
 		}
 		
 		instruction_label = new JLabel();
-		instruction_label.setBounds(850, 85, 150, 150 );
+		instruction_label.setBounds(835, 135, 150, 150 );
 		instruction_label.setIcon(new ImageIcon(instructionImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
 		background_panel.add(instruction_label);
 		
@@ -177,12 +177,12 @@ public class GUImedium extends JFrame {
 		background_panel.add(map_label);
 		
 		logo_label = new JLabel();
-		logo_label.setBounds(850, 335, 150, 150 );
+		logo_label.setBounds(835, 335, 150, 150 );
 		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
 		background_panel.add(logo_label);
 		
 		name_label = new JLabel();
-		name_label.setBounds(850, 20, 101, 73 );
+		name_label.setBounds(860, 50, 101, 73 );
 		name_label.setIcon(new ImageIcon(nameImg.getScaledInstance(101, 73, Image.SCALE_SMOOTH)));
 		background_panel.add(name_label);
 	
@@ -205,7 +205,7 @@ public class GUImedium extends JFrame {
 					int markerCount = 0;
 					for(Treasure t : tempLocations){
 						if(t.checkActive()){
-							markerLbl.get(markerCount).setLocation(t.getPosX(),t.getPosY());
+							markerLbl.get(markerCount).setLocation(t.getPosX()-100,t.getPosY()-100);
 							markerCount++;
 						}
 					}
@@ -221,7 +221,7 @@ public class GUImedium extends JFrame {
 		updateThread.start();
 	}
 
-	//new thread for custom animation of markers //
+	//new thread for custom animation of markers //not used yet
 	public void setupMarkerThread(){
 		Thread updateThread = new Thread("MarkerThread"){
 			public void run(){
