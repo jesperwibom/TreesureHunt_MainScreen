@@ -123,7 +123,7 @@ public class GUImedium extends JFrame {
 		}
 		
 		try {
-			mapImg = ImageIO.read(new File("res/usertesting_map_screen.png"));
+			mapImg = ImageIO.read(new File("res/mapscreen.png"));
 			if(Constants.DEBUG){System.out.println("mapImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("mapImg not found");}
@@ -133,12 +133,7 @@ public class GUImedium extends JFrame {
 			if(Constants.DEBUG){System.out.println("instructionImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("minstructionImg not found");}
-		}
-		try {
-			textImg = ImageIO.read(new File("res/textscreen.png"));
-			if(Constants.DEBUG){System.out.println("textImg loaded");}
-		} catch (IOException e) {
-			if(Constants.DEBUG){System.out.println("textImg not found");}
+		
 		}
 		try {
 			nameImg = ImageIO.read(new File("res/namescreen.png"));
@@ -177,23 +172,18 @@ public class GUImedium extends JFrame {
 		background_panel.add(instruction_label);
 		
 		map_label = new JLabel();
-		map_label.setBounds(25, 100, (int) (screenSize[0]*0.75), (int) (screenSize[1]*0.75));
+		map_label.setBounds(25, 50, (int) (screenSize[0]*0.75), (int) (screenSize[1]*0.75));
 		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance((int) (screenSize[0]*0.75),  (int) (screenSize[1]*0.75), Image.SCALE_SMOOTH)));
 		background_panel.add(map_label);
 		
 		logo_label = new JLabel();
-		logo_label.setBounds(850, 390, 150, 150 );
+		logo_label.setBounds(850, 335, 150, 150 );
 		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
 		background_panel.add(logo_label);
 		
-		text_label = new JLabel();
-		text_label.setBounds(850, 250, 129, 84 );
-		text_label.setIcon(new ImageIcon(textImg.getScaledInstance(129, 84, Image.SCALE_SMOOTH)));
-		background_panel.add(text_label);
-		
 		name_label = new JLabel();
-		name_label.setBounds(250, 20, 230, 35 );
-		name_label.setIcon(new ImageIcon(nameImg.getScaledInstance(230, 35, Image.SCALE_SMOOTH)));
+		name_label.setBounds(850, 20, 101, 73 );
+		name_label.setIcon(new ImageIcon(nameImg.getScaledInstance(101, 73, Image.SCALE_SMOOTH)));
 		background_panel.add(name_label);
 	
 		background_label = new JLabel();
