@@ -40,6 +40,16 @@ public class TreasureSupport {
 		treasureLocations.add(new Treasure("TL08",300,100));
 		treasureLocations.add(new Treasure("TL09",150,200));
 		treasureLocations.add(new Treasure("TL10",40,150));
+		treasureLocations.add(new Treasure("TL11",100,50));
+		treasureLocations.add(new Treasure("TL12",200,250));
+		treasureLocations.add(new Treasure("TL13",50,200));
+		treasureLocations.add(new Treasure("TL14",200,250));
+		treasureLocations.add(new Treasure("TL15",500,50));
+		treasureLocations.add(new Treasure("TL16",400,100));
+		treasureLocations.add(new Treasure("TL17",450,300));
+		treasureLocations.add(new Treasure("TL18",300,250));
+		treasureLocations.add(new Treasure("TL19",150,100));
+		treasureLocations.add(new Treasure("TL20",40,50));
 	}
 	
 	//Generates ONE active treasure
