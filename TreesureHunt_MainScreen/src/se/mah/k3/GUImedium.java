@@ -122,7 +122,7 @@ public class GUImedium extends JFrame {
 		}
 		
 		try {
-			mapImg = ImageIO.read(new File("res/mapscreen.png"));
+			mapImg = ImageIO.read(new File("res/usertesting_map_screen.png"));
 			if(Constants.DEBUG){System.out.println("mapImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("mapImg not found");}
