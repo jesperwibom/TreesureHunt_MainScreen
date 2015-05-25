@@ -221,7 +221,7 @@ public class GUImedium extends JFrame {
 		updateThread.start();
 	}
 
-	//new thread for custom animation of markers
+	//new thread for custom animation of markers //
 	public void setupMarkerThread(){
 		Thread updateThread = new Thread("MarkerThread"){
 			public void run(){
