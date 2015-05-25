@@ -56,6 +56,7 @@ public class GUImedium extends JFrame {
 	private BufferedImage instructionImg;
 	private BufferedImage textImg;
 	private BufferedImage nameImg;
+	private ImageIcon markerAni;
 	private ImageIcon loaderAni;
 
 	
@@ -146,6 +147,7 @@ public class GUImedium extends JFrame {
 			if(Constants.DEBUG){System.out.println("nameImg not found");}
 		}
 		
+		markerAni = new ImageIcon("res/markerTest.gif");
 		loaderAni = new ImageIcon("res/loader.gif");
 		
 	}
@@ -164,7 +166,8 @@ public class GUImedium extends JFrame {
 		for(int i = 0; i < Constants.MAX_ACTIVE; i++){
 			markerLbl.add(new JLabel());
 			markerLbl.get(i).setBounds(0,0,100,100);
-			markerLbl.get(i).setIcon(new ImageIcon(markerImg.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
+			//markerLbl.get(i).setIcon(new ImageIcon(markerImg.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
+			markerLbl.get(i).setIcon(markerAni);
 			background_panel.add(markerLbl.get(i));
 		}
 		
