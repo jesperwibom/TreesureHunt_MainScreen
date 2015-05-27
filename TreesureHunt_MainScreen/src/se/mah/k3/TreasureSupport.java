@@ -30,26 +30,26 @@ public class TreasureSupport {
 	
 	//Run in the start of the application. Every added new TreasureLocation is initialized with id, x position and y position
 	public void setupTreasureLocations(){	
-		treasureLocations.add(new Treasure("TL01",100,100));
-		treasureLocations.add(new Treasure("TL02",200,150));
-		treasureLocations.add(new Treasure("TL03",50,300));
-		treasureLocations.add(new Treasure("TL04",400,250));
-		treasureLocations.add(new Treasure("TL05",500,300));
-		treasureLocations.add(new Treasure("TL06",400,200));
-		treasureLocations.add(new Treasure("TL07",450,200));
-		treasureLocations.add(new Treasure("TL08",300,100));
-		treasureLocations.add(new Treasure("TL09",150,200));
-		treasureLocations.add(new Treasure("TL10",40,150));
-		treasureLocations.add(new Treasure("TL11",100,50));
-		treasureLocations.add(new Treasure("TL12",200,250));
-		treasureLocations.add(new Treasure("TL13",50,200));
-		treasureLocations.add(new Treasure("TL14",200,250));
-		treasureLocations.add(new Treasure("TL15",500,50));
-		treasureLocations.add(new Treasure("TL16",400,100));
-		treasureLocations.add(new Treasure("TL17",450,300));
-		treasureLocations.add(new Treasure("TL18",300,250));
-		treasureLocations.add(new Treasure("TL19",150,100));
-		treasureLocations.add(new Treasure("TL20",40,50));
+		treasureLocations.add(new Treasure("TL01",300,720));
+		treasureLocations.add(new Treasure("TL02",520,700));
+		treasureLocations.add(new Treasure("TL03",760,400));
+		treasureLocations.add(new Treasure("TL04",900,720));
+		treasureLocations.add(new Treasure("TL05",720,300));
+		treasureLocations.add(new Treasure("TL06",1000,300));
+		treasureLocations.add(new Treasure("TL07",1000,500));
+		treasureLocations.add(new Treasure("TL08",1400,780));
+		treasureLocations.add(new Treasure("TL09",1400,380));
+		treasureLocations.add(new Treasure("TL10",720,600));
+		treasureLocations.add(new Treasure("TL11",800,100));
+		//treasureLocations.add(new Treasure("TL12",720,180));
+		treasureLocations.add(new Treasure("TL13",400,200));
+		treasureLocations.add(new Treasure("TL14",200,50));
+		treasureLocations.add(new Treasure("TL15",80,300));
+		treasureLocations.add(new Treasure("TL16",60,450));
+		treasureLocations.add(new Treasure("TL17",30,700));
+		treasureLocations.add(new Treasure("TL18",400,400));
+		treasureLocations.add(new Treasure("TL19",370,740));
+		treasureLocations.add(new Treasure("TL20",1000,650));
 	}
 	
 	//Generates ONE active treasure

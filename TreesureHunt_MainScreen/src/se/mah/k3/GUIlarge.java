@@ -45,7 +45,7 @@ public class GUIlarge extends JFrame {
 	private ArrayList<JLabel> markerLbl;
 	
 	//Screen variables
-	private int[] screenSize = {1820,980};
+	private int[] screenSize = {1920,1055};
 	private int[] screenPlacement = {0,100};
 	
 	//Resource variables
@@ -167,22 +167,22 @@ public class GUIlarge extends JFrame {
 		}
 		
 		instruction_label = new JLabel();
-		instruction_label.setBounds(1435, 285, 300, 300 );
+		instruction_label.setBounds(1535, 285, 300, 300 );
 		instruction_label.setIcon(new ImageIcon(instructionImg.getScaledInstance(300, 300, Image.SCALE_SMOOTH)));
 		background_panel.add(instruction_label);
 		
 		logo_label = new JLabel();
-		logo_label.setBounds(1435, 635, 300, 300 );
+		logo_label.setBounds(1535, 635, 300, 300 );
 		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(300, 300, Image.SCALE_SMOOTH)));
 		background_panel.add(logo_label);
 		
 		name_label = new JLabel();
-		name_label.setBounds(1500, 50, 201, 153 );
+		name_label.setBounds(1600, 50, 201, 153 );
 		name_label.setIcon(new ImageIcon(nameImg.getScaledInstance(201, 153, Image.SCALE_SMOOTH)));
 		background_panel.add(name_label);
 		
 		map_label = new JLabel();
-		map_label.setBounds(25, 50, (int) (screenSize[0]*0.75), (int) (screenSize[1]*0.75));
+		map_label.setBounds(40, 100, (int) (screenSize[0]*0.75), (int) (screenSize[1]*0.75));
 		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance((int) (screenSize[0]*0.75),  (int) (screenSize[1]*0.75), Image.SCALE_SMOOTH)));
 		background_panel.add(map_label);
 	
@@ -205,7 +205,7 @@ public class GUIlarge extends JFrame {
 					int markerCount = 0;
 					for(Treasure t : tempLocations){
 						if(t.checkActive()){
-							markerLbl.get(markerCount).setLocation(t.getPosX()-100,t.getPosY()-100);
+							markerLbl.get(markerCount).setLocation(t.getPosX()-100+40,t.getPosY()-100+100);
 							markerCount++;
 						}
 					}
