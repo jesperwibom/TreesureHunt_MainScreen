@@ -41,6 +41,7 @@ public class GUImedium extends JFrame {
 	private JLabel background_label;
 	private JLabel text_label;
 	private JLabel name_label;
+	private JLabel sidebar_label;
 	
 	private ArrayList<JLabel> markerLbl;
 	
@@ -56,6 +57,7 @@ public class GUImedium extends JFrame {
 	private BufferedImage instructionImg;
 	private BufferedImage textImg;
 	private BufferedImage nameImg;
+	private BufferedImage sidebarImg;
 	private ImageIcon markerAni;
 	private ImageIcon loaderAni;
 
@@ -142,6 +144,13 @@ public class GUImedium extends JFrame {
 			if(Constants.DEBUG){System.out.println("nameImg not found");}
 		}
 		
+		try {
+			sidebarImg = ImageIO.read(new File("res/sidebarscreen.png"));
+			if(Constants.DEBUG){System.out.println("sidebarImg loaded");}
+		} catch (IOException e) {
+			if(Constants.DEBUG){System.out.println("sidebarImg not found");}
+		}
+		
 		markerAni = new ImageIcon("res/waveRadar.gif");
 		loaderAni = new ImageIcon("res/loader.gif");
 		
@@ -186,6 +195,11 @@ public class GUImedium extends JFrame {
 		name_label.setIcon(new ImageIcon(nameImg.getScaledInstance(101, 73, Image.SCALE_SMOOTH)));
 		background_panel.add(name_label);
 	
+		sidebar_label = new JLabel();
+		sidebar_label.setBounds(860, 50, 101, 73 );
+		sidebar_label.setIcon(new ImageIcon(sidebarImg.getScaledInstance(101, 73, Image.SCALE_SMOOTH)));
+		background_panel.add(sidebar_label);
+		
 		background_label = new JLabel();
 		background_label.setBounds(0,0,screenSize[0],screenSize[1]);
 		background_label.setIcon(new ImageIcon(backgroundImg.getScaledInstance(screenSize[0], screenSize[1], Image.SCALE_SMOOTH)));
