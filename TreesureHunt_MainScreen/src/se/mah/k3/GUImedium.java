@@ -38,7 +38,8 @@ public class GUImedium extends JFrame {
 	private JLabel map_label;
 	private JLabel background_label;
 	private JLabel sidebar_label;
-
+	private JLabel compass_label;
+	private JLabel star_label;
 	private JLabel instruction_label;
 	
 	private ArrayList<JLabel> markerLbl;
@@ -52,6 +53,8 @@ public class GUImedium extends JFrame {
 	private BufferedImage logoImg;
 	private BufferedImage mapImg;
 	private BufferedImage sidebarImg;
+	private BufferedImage compassImg;
+	private BufferedImage starImg;
 
 	private BufferedImage instructionImg;
 	private ImageIcon markerAni;
@@ -114,7 +117,7 @@ public class GUImedium extends JFrame {
 		}
 		
 		try {
-			mapImg = ImageIO.read(new File("res/mapscreen.png"));
+			mapImg = ImageIO.read(new File("res/map.png"));
 			if(Constants.DEBUG){System.out.println("mapImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("mapImg not found");}
@@ -128,11 +131,24 @@ public class GUImedium extends JFrame {
 		}
 		
 		try {
+			compassImg = ImageIO.read(new File("res/compass_icon.png"));
+			if(Constants.DEBUG){System.out.println("compassImg loaded");}
+		} catch (IOException e) {
+			if(Constants.DEBUG){System.out.println("compassImg not found");}
+		}
+		
+		try {
+			starImg = ImageIO.read(new File("res/star_icon.png"));
+			if(Constants.DEBUG){System.out.println("starImg loaded");}
+		} catch (IOException e) {
+			if(Constants.DEBUG){System.out.println("starImg not found");}
+		}
+		
+		try {
 			instructionImg = ImageIO.read(new File("res/instructionscreen.png"));
 			if(Constants.DEBUG){System.out.println("instructionImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("minstructionImg not found");}
-		
 		}
 		
 		markerAni = new ImageIcon("res/waveRadar.gif");
@@ -150,6 +166,7 @@ public class GUImedium extends JFrame {
 		background_panel = new JPanel();
 		contentPane.add(background_panel, BorderLayout.CENTER);
 		background_panel.setLayout(null);
+		background_panel.setBackground(new Color(195,205,210));
 		
 		//MARKERS
 		markerLbl = new ArrayList<JLabel>();
@@ -172,24 +189,37 @@ public class GUImedium extends JFrame {
 		instruction_label.setIcon(new ImageIcon(instructionImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
 		background_panel.add(instruction_label);
 		
+		//COMPASS
+		compass_label = new JLabel();
+		compass_label.setBounds(26, 390, 150, 150 );
+		compass_label.setIcon(new ImageIcon(compassImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+		background_panel.add(compass_label);
+		
+		//STAR
+		star_label = new JLabel();
+		star_label.setBounds(300, 300, 50, 50 );
+		star_label.setIcon(new ImageIcon(starImg.getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		background_panel.add(star_label);
+		
 		//MAP
 		map_label = new JLabel();
-		map_label.setBounds(5, 5, 850, 576);
-		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance(850, 576, Image.SCALE_SMOOTH)));
+		map_label.setBounds(7, 7, 840, 570);
+		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance(840, 570, Image.SCALE_SMOOTH)));
 		background_panel.add(map_label);
 		
 		//SIDEBAR BACKGROUND
 		sidebar_label = new JLabel();
-		sidebar_label.setBounds(865, 5, 850, 576 );
-		sidebar_label.setIcon(new ImageIcon(sidebarImg.getScaledInstance(850, 576, Image.SCALE_SMOOTH)));
+		sidebar_label.setBounds(865, 7, 200, 576 );
+		sidebar_label.setIcon(new ImageIcon(sidebarImg.getScaledInstance(200, 576, Image.SCALE_SMOOTH)));
 		background_panel.add(sidebar_label);
 		
+		/*
 		//BACKGROUND
 		background_label = new JLabel();
 		background_label.setBounds(0,0,screenSize[0],screenSize[1]);
 		background_label.setIcon(new ImageIcon(backgroundImg.getScaledInstance(screenSize[0], screenSize[1], Image.SCALE_SMOOTH)));
 		background_panel.add(background_label);
-		
+		*/
 	}
 	
 	//Checks firebase continuously and update marker locations 
