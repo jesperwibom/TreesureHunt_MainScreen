@@ -181,8 +181,8 @@ public class GUImedium extends JFrame {
 		background_panel.add(instruction_label);
 		
 		map_label = new JLabel();
-		map_label.setBounds(25, 50, (int) (screenSize[0]*0.75), (int) (screenSize[1]*0.75));
-		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance((int) (screenSize[0]*0.75),  (int) (screenSize[1]*0.75), Image.SCALE_SMOOTH)));
+		map_label.setBounds(15, 15, (int) (screenSize[0]*0.80), (int) (screenSize[1]*0.80));
+		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance((int) (screenSize[0]*0.80),  (int) (screenSize[1]*0.80), Image.SCALE_SMOOTH)));
 		background_panel.add(map_label);
 		
 		logo_label = new JLabel();
