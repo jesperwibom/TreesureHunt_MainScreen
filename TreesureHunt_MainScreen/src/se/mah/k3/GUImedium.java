@@ -33,10 +33,10 @@ public class GUImedium extends JFrame {
 	//Frame elements
 	private JPanel contentPane;
 	private JPanel background_panel;
-	
+
+	private JLabel background_label;
 	private JLabel logo_label;
 	private JLabel map_label;
-	private JLabel background_label;
 	private JLabel sidebar_label;
 	private JLabel compass_label;
 	private JLabel star_label;
@@ -47,6 +47,8 @@ public class GUImedium extends JFrame {
 	//Screen variables
 	private int[] screenSize = {1024,576};
 	private int[] screenPlacement = {100,100};
+	private int[] mapPosition = {7, 7}; //sets where the map is placed in relation to the top left corner
+	private int[] mapSize = {840, 570}; //control both the scaling of the mapImg and the size of the JLabel
 	
 	//Resource variables
 	private BufferedImage backgroundImg;
@@ -203,8 +205,8 @@ public class GUImedium extends JFrame {
 		
 		//MAP
 		map_label = new JLabel();
-		map_label.setBounds(7, 7, 840, 570);
-		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance(840, 570, Image.SCALE_SMOOTH)));
+		map_label.setBounds(mapPosition[0], mapPosition[1], mapSize[0], mapSize[1]);
+		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance(mapSize[0], mapSize[1], Image.SCALE_SMOOTH)));
 		background_panel.add(map_label);
 		
 		//SIDEBAR BACKGROUND
@@ -233,8 +235,13 @@ public class GUImedium extends JFrame {
 					int markerCount = 0;
 					for(Treasure t : tempLocations){
 						if(t.checkActive()){
-							markerLbl.get(markerCount).setLocation(t.getPosX()-100,t.getPosY()-100);
+							markerLbl.get(markerCount).setLocation(mapMarker(t.getPosX(),0)-100,mapMarker(t.getPosY(),1)-100);
+
+							if(Constants.DEBUG){System.out.println(t.getId()+":");}
+							if(Constants.DEBUG){System.out.println(markerLbl.get(markerCount).getLocation());}
+
 							markerCount++;
+
 						}
 					}
 
@@ -247,6 +254,18 @@ public class GUImedium extends JFrame {
 			}
 		};
 		updateThread.start();
+	}
+	
+	//Maps a value to the correct position on the map. when calling method, first value is position, second is 0 for x values, 1 for y values
+	public int mapMarker(int position, int xy){
+		int inMin = 0;
+		int inMax	= 1000;
+		int outMin = mapPosition[xy];
+		int outMax = mapSize[xy] + mapPosition[xy];
+		
+		int mappedPosition = (position - inMin) * (outMax - outMin)  / (inMax - inMin)  + outMin;
+		
+		return mappedPosition;
 	}
 	
 }
