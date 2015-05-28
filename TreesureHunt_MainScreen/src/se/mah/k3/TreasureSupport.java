@@ -126,13 +126,9 @@ public class TreasureSupport {
 		}	
 		if(Constants.DEBUG){System.out.println("activeTreasureCount: "+getActiveTreasureCounter());}
 	}
-	
+
 	public void increaseActiveTreasureCounter(int i){
 		activeTreasureCounter += i;
-	}
-	
-	public void decreaseActiveTreasureCounter(int i){
-		activeTreasureCounter -= i;
 	}
 	
 	public void setActiveTreasureCounter(int i){

@@ -74,11 +74,6 @@ public class FireSupport {
 						//Updates firebase with new data
 						setData(treasureSupport.lastChangedTreasureId, treasureSupport.lastChangedTreasureType);
 						
-						
-						//Draw markers (TA BORT)
-						//GUItest.drawFrame();
-						//GUIsmall.drawFrame();
-						
 					}
 					
 					//Debug message
