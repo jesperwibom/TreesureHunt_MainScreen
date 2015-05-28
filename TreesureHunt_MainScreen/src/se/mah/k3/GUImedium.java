@@ -164,7 +164,7 @@ public class GUImedium extends JFrame {
 		contentPane.setLayout(new BorderLayout());
 		setContentPane(contentPane);
 		
-		//CONTAINS ALL LABELS
+		//CONTAIN ALL LABELS
 		background_panel = new JPanel();
 		contentPane.add(background_panel, BorderLayout.CENTER);
 		background_panel.setLayout(null);
@@ -242,10 +242,8 @@ public class GUImedium extends JFrame {
 							if(Constants.DEBUG){System.out.println(markerLbl.get(markerCount).getLocation());}
 
 							markerCount++;
-
 						}
 					}
-
 					try {
 						sleep(3000);
 					} catch (InterruptedException e) {
