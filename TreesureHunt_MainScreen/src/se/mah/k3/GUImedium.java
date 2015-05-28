@@ -111,7 +111,7 @@ public class GUImedium extends JFrame {
 		}
 		
 		try {
-			logoImg = ImageIO.read(new File("res/logo.png"));
+			logoImg = ImageIO.read(new File("res/logoscreen.png"));
 			if(Constants.DEBUG){System.out.println("logoImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("logoImg not found");}
@@ -181,8 +181,8 @@ public class GUImedium extends JFrame {
 		background_panel.add(instruction_label);
 		
 		map_label = new JLabel();
-		map_label.setBounds(15, 15, (int) (screenSize[0]*0.80), (int) (screenSize[1]*0.80));
-		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance((int) (screenSize[0]*0.80),  (int) (screenSize[1]*0.80), Image.SCALE_SMOOTH)));
+		map_label.setBounds(5, 5, 850, 576);
+		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance(850, 576, Image.SCALE_SMOOTH)));
 		background_panel.add(map_label);
 		
 		logo_label = new JLabel();
