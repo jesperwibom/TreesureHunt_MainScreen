@@ -170,15 +170,6 @@ public class GUImedium extends JFrame {
 		background_panel.setLayout(null);
 		background_panel.setBackground(new Color(195,205,210));
 		
-		//MARKERS
-		markerLbl = new ArrayList<JLabel>();
-		for(int i = 0; i < Constants.MAX_ACTIVE; i++){
-			markerLbl.add(new JLabel());
-			markerLbl.get(i).setBounds(0,0,200,200);
-			markerLbl.get(i).setIcon(markerAni);
-			background_panel.add(markerLbl.get(i));
-		}
-		
 		//LOGO
 		logo_label = new JLabel();
 		logo_label.setBounds(875, 335, 150, 150 );
@@ -191,10 +182,25 @@ public class GUImedium extends JFrame {
 		instruction_label.setIcon(new ImageIcon(instructionImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
 		background_panel.add(instruction_label);
 		
+		//SIDEBAR BACKGROUND
+		sidebar_label = new JLabel();
+		sidebar_label.setBounds(865, 7, 200, 576 );
+		sidebar_label.setIcon(new ImageIcon(sidebarImg.getScaledInstance(200, 576, Image.SCALE_SMOOTH)));
+		background_panel.add(sidebar_label);
+		
+		//MARKERS
+		markerLbl = new ArrayList<JLabel>();
+		for(int i = 0; i < Constants.MAX_ACTIVE; i++){
+			markerLbl.add(new JLabel());
+			markerLbl.get(i).setBounds(0,0,200,200);
+			markerLbl.get(i).setIcon(markerAni);
+			background_panel.add(markerLbl.get(i));
+		}
+		
 		//COMPASS
 		compass_label = new JLabel();
-		compass_label.setBounds(26, 390, 150, 150 );
-		compass_label.setIcon(new ImageIcon(compassImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+		compass_label.setBounds(18, 418, 130, 130 );
+		compass_label.setIcon(new ImageIcon(compassImg.getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
 		background_panel.add(compass_label);
 		
 		//STAR
@@ -209,11 +215,6 @@ public class GUImedium extends JFrame {
 		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance(mapSize[0], mapSize[1], Image.SCALE_SMOOTH)));
 		background_panel.add(map_label);
 		
-		//SIDEBAR BACKGROUND
-		sidebar_label = new JLabel();
-		sidebar_label.setBounds(865, 7, 200, 576 );
-		sidebar_label.setIcon(new ImageIcon(sidebarImg.getScaledInstance(200, 576, Image.SCALE_SMOOTH)));
-		background_panel.add(sidebar_label);
 		
 		/*
 		//BACKGROUND
