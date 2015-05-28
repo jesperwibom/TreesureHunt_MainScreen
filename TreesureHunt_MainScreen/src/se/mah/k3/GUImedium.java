@@ -40,7 +40,6 @@ public class GUImedium extends JFrame {
 	private JLabel instruction_label;
 	private JLabel background_label;
 	private JLabel text_label;
-	private JLabel name_label;
 	private JLabel sidebar_label;
 	
 	private ArrayList<JLabel> markerLbl;
@@ -56,7 +55,6 @@ public class GUImedium extends JFrame {
 	private BufferedImage markerImg;
 	private BufferedImage instructionImg;
 	private BufferedImage textImg;
-	private BufferedImage nameImg;
 	private BufferedImage sidebarImg;
 	private ImageIcon markerAni;
 	private ImageIcon loaderAni;
@@ -137,12 +135,6 @@ public class GUImedium extends JFrame {
 			if(Constants.DEBUG){System.out.println("minstructionImg not found");}
 		
 		}
-		try {
-			nameImg = ImageIO.read(new File("res/namescreen.png"));
-			if(Constants.DEBUG){System.out.println("nameImg loaded");}
-		} catch (IOException e) {
-			if(Constants.DEBUG){System.out.println("nameImg not found");}
-		}
 		
 		try {
 			sidebarImg = ImageIO.read(new File("res/sidebarscreen.png"));
@@ -186,14 +178,10 @@ public class GUImedium extends JFrame {
 		background_panel.add(map_label);
 		
 		logo_label = new JLabel();
-		logo_label.setBounds(865, 335, 150, 150 );
+		logo_label.setBounds(875, 335, 150, 150 );
 		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
 		background_panel.add(logo_label);
-		
-		name_label = new JLabel();
-		name_label.setBounds(865, 50, 101, 73 );
-		name_label.setIcon(new ImageIcon(nameImg.getScaledInstance(101, 73, Image.SCALE_SMOOTH)));
-		background_panel.add(name_label);
+	
 	
 		sidebar_label = new JLabel();
 		sidebar_label.setBounds(865, 5, 850, 576 );
