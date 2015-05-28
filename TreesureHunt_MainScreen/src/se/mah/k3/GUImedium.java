@@ -34,13 +34,12 @@ public class GUImedium extends JFrame {
 	private JPanel contentPane;
 	private JPanel background_panel;
 	
-	
 	private JLabel logo_label;
 	private JLabel map_label;
-	private JLabel instruction_label;
 	private JLabel background_label;
-	private JLabel text_label;
 	private JLabel sidebar_label;
+
+	private JLabel instruction_label;
 	
 	private ArrayList<JLabel> markerLbl;
 	
@@ -52,12 +51,10 @@ public class GUImedium extends JFrame {
 	private BufferedImage backgroundImg;
 	private BufferedImage logoImg;
 	private BufferedImage mapImg;
-	private BufferedImage markerImg;
-	private BufferedImage instructionImg;
-	private BufferedImage textImg;
 	private BufferedImage sidebarImg;
+
+	private BufferedImage instructionImg;
 	private ImageIcon markerAni;
-	private ImageIcon loaderAni;
 
 	
 	//////////////////////////////////////////////////
@@ -100,6 +97,7 @@ public class GUImedium extends JFrame {
 	// Methods
 	// 
 	
+	//Load all resources
 	public void loadResources(){
 		try {
 			backgroundImg = ImageIO.read(new File("res/backgroundscreen.png"));
@@ -116,18 +114,19 @@ public class GUImedium extends JFrame {
 		}
 		
 		try {
-			markerImg = ImageIO.read(new File("res/markerscreen.png"));
-			if(Constants.DEBUG){System.out.println("markerImg loaded");}
-		} catch (IOException e) {
-			if(Constants.DEBUG){System.out.println("markerImg not found");}
-		}
-		
-		try {
 			mapImg = ImageIO.read(new File("res/mapscreen.png"));
 			if(Constants.DEBUG){System.out.println("mapImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("mapImg not found");}
 		}
+
+		try {
+			sidebarImg = ImageIO.read(new File("res/sidebarscreen.png"));
+			if(Constants.DEBUG){System.out.println("sidebarImg loaded");}
+		} catch (IOException e) {
+			if(Constants.DEBUG){System.out.println("sidebarImg not found");}
+		}
+		
 		try {
 			instructionImg = ImageIO.read(new File("res/instructionscreen.png"));
 			if(Constants.DEBUG){System.out.println("instructionImg loaded");}
@@ -136,67 +135,64 @@ public class GUImedium extends JFrame {
 		
 		}
 		
-		try {
-			sidebarImg = ImageIO.read(new File("res/sidebarscreen.png"));
-			if(Constants.DEBUG){System.out.println("sidebarImg loaded");}
-		} catch (IOException e) {
-			if(Constants.DEBUG){System.out.println("sidebarImg not found");}
-		}
-		
 		markerAni = new ImageIcon("res/waveRadar.gif");
-		loaderAni = new ImageIcon("res/loader.gif");
 		
 	}
 	
+	//Set up all frame elements in the correct order and location
 	public void setupFrameElements(){
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		contentPane.setLayout(new BorderLayout());
 		setContentPane(contentPane);
 		
+		//CONTAINS ALL LABELS
 		background_panel = new JPanel();
 		contentPane.add(background_panel, BorderLayout.CENTER);
 		background_panel.setLayout(null);
 		
+		//MARKERS
 		markerLbl = new ArrayList<JLabel>();
 		for(int i = 0; i < Constants.MAX_ACTIVE; i++){
 			markerLbl.add(new JLabel());
 			markerLbl.get(i).setBounds(0,0,200,200);
-			//markerLbl.get(i).setIcon(new ImageIcon(markerImg.getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
 			markerLbl.get(i).setIcon(markerAni);
 			background_panel.add(markerLbl.get(i));
 		}
 		
+		//LOGO
+		logo_label = new JLabel();
+		logo_label.setBounds(875, 335, 150, 150 );
+		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+		background_panel.add(logo_label);
+		
+		//INSTRUCTION (will be replaced with an animation)
 		instruction_label = new JLabel();
 		instruction_label.setBounds(865, 135, 150, 150 );
 		instruction_label.setIcon(new ImageIcon(instructionImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
 		background_panel.add(instruction_label);
 		
+		//MAP
 		map_label = new JLabel();
 		map_label.setBounds(5, 5, 850, 576);
 		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance(850, 576, Image.SCALE_SMOOTH)));
 		background_panel.add(map_label);
 		
-		logo_label = new JLabel();
-		logo_label.setBounds(875, 335, 150, 150 );
-		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
-		background_panel.add(logo_label);
-	
-	
+		//SIDEBAR BACKGROUND
 		sidebar_label = new JLabel();
 		sidebar_label.setBounds(865, 5, 850, 576 );
 		sidebar_label.setIcon(new ImageIcon(sidebarImg.getScaledInstance(850, 576, Image.SCALE_SMOOTH)));
 		background_panel.add(sidebar_label);
 		
+		//BACKGROUND
 		background_label = new JLabel();
 		background_label.setBounds(0,0,screenSize[0],screenSize[1]);
 		background_label.setIcon(new ImageIcon(backgroundImg.getScaledInstance(screenSize[0], screenSize[1], Image.SCALE_SMOOTH)));
 		background_panel.add(background_label);
 		
-		
-		
 	}
 	
+	//Checks firebase continuously and update marker locations 
 	public void setupUpdateThread(){
 		Thread updateThread = new Thread("UpdateThread"){
 			public void run(){
@@ -214,27 +210,6 @@ public class GUImedium extends JFrame {
 
 					try {
 						sleep(3000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		};
-		updateThread.start();
-	}
-
-	//new thread for custom animation of markers //not used yet
-	public void setupMarkerThread(){
-		Thread updateThread = new Thread("MarkerThread"){
-			public void run(){
-				while(true){
-					if(Constants.DEBUG){System.out.println("MarkerThread runs!!!!!!!!!!");}
-					for (int i = 0; i < Constants.MAX_ACTIVE; i++){
-						//markerLbl.get(i).setIcon
-					}
-					
-					try {
-						sleep(1000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
