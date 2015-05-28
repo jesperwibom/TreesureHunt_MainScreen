@@ -176,7 +176,7 @@ public class GUImedium extends JFrame {
 		}
 		
 		instruction_label = new JLabel();
-		instruction_label.setBounds(835, 135, 150, 150 );
+		instruction_label.setBounds(865, 135, 150, 150 );
 		instruction_label.setIcon(new ImageIcon(instructionImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
 		background_panel.add(instruction_label);
 		
@@ -186,18 +186,18 @@ public class GUImedium extends JFrame {
 		background_panel.add(map_label);
 		
 		logo_label = new JLabel();
-		logo_label.setBounds(835, 335, 150, 150 );
+		logo_label.setBounds(865, 335, 150, 150 );
 		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
 		background_panel.add(logo_label);
 		
 		name_label = new JLabel();
-		name_label.setBounds(860, 50, 101, 73 );
+		name_label.setBounds(865, 50, 101, 73 );
 		name_label.setIcon(new ImageIcon(nameImg.getScaledInstance(101, 73, Image.SCALE_SMOOTH)));
 		background_panel.add(name_label);
 	
 		sidebar_label = new JLabel();
-		sidebar_label.setBounds(860, 50, 101, 73 );
-		sidebar_label.setIcon(new ImageIcon(sidebarImg.getScaledInstance(101, 73, Image.SCALE_SMOOTH)));
+		sidebar_label.setBounds(865, 5, 850, 576 );
+		sidebar_label.setIcon(new ImageIcon(sidebarImg.getScaledInstance(850, 576, Image.SCALE_SMOOTH)));
 		background_panel.add(sidebar_label);
 		
 		background_label = new JLabel();
