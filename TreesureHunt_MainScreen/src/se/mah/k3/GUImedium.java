@@ -36,11 +36,12 @@ public class GUImedium extends JFrame {
 
 	private JLabel background_label;
 	private JLabel logo_label;
+	private JLabel logotext_label;
 	private JLabel map_label;
 	private JLabel sidebar_label;
 	private JLabel compass_label;
 	private JLabel star_label;
-	private JLabel instruction_label;
+	private JLabel animation_label;
 	
 	private ArrayList<JLabel> markerLbl;
 	
@@ -48,17 +49,19 @@ public class GUImedium extends JFrame {
 	private int[] screenSize = {1024,576};
 	private int[] screenPlacement = {100,100};
 	private int[] mapPosition = {7, 7}; //sets where the map is placed in relation to the top left corner
-	private int[] mapSize = {840, 570}; //control both the scaling of the mapImg and the size of the JLabel
+	private int[] mapSize = {840, 550}; //control both the scaling of the mapImg and the size of the JLabel
+	private int[] sidebarSize = {150, 549}; // control both the scaling of the sidebarImg and the size of the JLabel
 	
 	//Resource variables
 	private BufferedImage backgroundImg;
 	private BufferedImage logoImg;
+	private BufferedImage logotextImg;
 	private BufferedImage mapImg;
 	private BufferedImage sidebarImg;
 	private BufferedImage compassImg;
 	private BufferedImage starImg;
 
-	private BufferedImage instructionImg;
+	private BufferedImage animationImg;
 	private ImageIcon markerAni;
 
 	
@@ -147,10 +150,16 @@ public class GUImedium extends JFrame {
 		}
 		
 		try {
-			instructionImg = ImageIO.read(new File("res/instructionscreen.png"));
-			if(Constants.DEBUG){System.out.println("instructionImg loaded");}
+			animationImg = ImageIO.read(new File("res/animationscreen.png"));
+			if(Constants.DEBUG){System.out.println("animationImg loaded");}
 		} catch (IOException e) {
-			if(Constants.DEBUG){System.out.println("minstructionImg not found");}
+			if(Constants.DEBUG){System.out.println("animationImg not found");}
+		}
+		try {
+			logotextImg = ImageIO.read(new File("res/logotextscreen.png"));
+			if(Constants.DEBUG){System.out.println("logotextImg loaded");}
+		} catch (IOException e) {
+			if(Constants.DEBUG){System.out.println("logotextImg not found");}
 		}
 		
 		markerAni = new ImageIcon("res/waveRadar.gif");
@@ -172,20 +181,26 @@ public class GUImedium extends JFrame {
 		
 		//LOGO
 		logo_label = new JLabel();
-		logo_label.setBounds(875, 335, 150, 150 );
-		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+		logo_label.setBounds(875, 271, 130, 130 );
+		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
 		background_panel.add(logo_label);
 		
-		//INSTRUCTION (will be replaced with an animation)
-		instruction_label = new JLabel();
-		instruction_label.setBounds(865, 135, 150, 150 );
-		instruction_label.setIcon(new ImageIcon(instructionImg.getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
-		background_panel.add(instruction_label);
+		//LOGOTEXT
+		logotext_label = new JLabel();
+		logotext_label.setBounds(875, 415, 130, 120 );
+		logotext_label.setIcon(new ImageIcon(logotextImg.getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+		background_panel.add(logotext_label);
+		
+		//ANIMATION
+		animation_label = new JLabel();
+		animation_label.setBounds(875, 28, 130, 130 );
+		animation_label.setIcon(new ImageIcon(animationImg.getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+		background_panel.add(animation_label);
 		
 		//SIDEBAR BACKGROUND
 		sidebar_label = new JLabel();
-		sidebar_label.setBounds(865, 7, 200, 576 );
-		sidebar_label.setIcon(new ImageIcon(sidebarImg.getScaledInstance(200, 576, Image.SCALE_SMOOTH)));
+		sidebar_label.setBounds(865, 7, sidebarSize[0], sidebarSize[1] );
+		sidebar_label.setIcon(new ImageIcon(sidebarImg.getScaledInstance(sidebarSize[0], sidebarSize[1], Image.SCALE_SMOOTH)));
 		background_panel.add(sidebar_label);
 		
 		//MARKERS
