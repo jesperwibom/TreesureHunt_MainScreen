@@ -181,14 +181,14 @@ public class GUImedium extends JFrame {
 		
 		//LOGO
 		logo_label = new JLabel();
-		logo_label.setBounds(875, 271, 130, 130 );
+		logo_label.setBounds(875, 295, 130, 130 );
 		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
 		background_panel.add(logo_label);
 		
 		//LOGOTEXT
 		logotext_label = new JLabel();
-		logotext_label.setBounds(875, 415, 130, 120 );
-		logotext_label.setIcon(new ImageIcon(logotextImg.getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+		logotext_label.setBounds(870, 440, 142, 98 );
+		logotext_label.setIcon(new ImageIcon(logotextImg.getScaledInstance(142, 98, Image.SCALE_SMOOTH)));
 		background_panel.add(logotext_label);
 		
 		//ANIMATION
@@ -214,8 +214,8 @@ public class GUImedium extends JFrame {
 		
 		//COMPASS
 		compass_label = new JLabel();
-		compass_label.setBounds(18, 418, 130, 130 );
-		compass_label.setIcon(new ImageIcon(compassImg.getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+		compass_label.setBounds(18, 450, 80, 80 );
+		compass_label.setIcon(new ImageIcon(compassImg.getScaledInstance (80, 80, Image.SCALE_SMOOTH)));
 		background_panel.add(compass_label);
 		
 		//STAR
