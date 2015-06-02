@@ -33,20 +33,20 @@ public class TreasureSupport {
 	//Set the positions with values between 1-1000, the will be scaled in relation to the mapPosition[] and mapSize[] in GUI
 	
 	//FOR X POSITION
-	// 30 is a realistic minimum, depending on the size of the markers
-	// 972 is a good maximum value
+	// 55 is a realistic minimum, depending on the size of the markers
+	// 970 is a good maximum value
 	
 	//FOR Y POSITION
-	// min = 29  max = 921
+	// min = 40  max = 905
 	
 	public void setupTreasureLocations(){	
-		treasureLocations.add(new Treasure("TL01",50,32));
+		treasureLocations.add(new Treasure("TL01",55,40));
 		treasureLocations.add(new Treasure("TL02",300,110));
-		treasureLocations.add(new Treasure("TL03",60,250));
+		treasureLocations.add(new Treasure("TL03",55,250));
 		treasureLocations.add(new Treasure("TL04",900,80));
 		treasureLocations.add(new Treasure("TL05",950,450));
-		treasureLocations.add(new Treasure("TL06",972,581));
-		treasureLocations.add(new Treasure("TL07",940,910));
+		treasureLocations.add(new Treasure("TL06",970,581));
+		treasureLocations.add(new Treasure("TL07",940,905));
 		treasureLocations.add(new Treasure("TL08",850,890));
 		treasureLocations.add(new Treasure("TL09",390,800));
 		treasureLocations.add(new Treasure("TL10",100,820));

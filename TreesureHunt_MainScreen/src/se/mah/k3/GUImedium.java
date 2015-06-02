@@ -34,7 +34,6 @@ public class GUImedium extends JFrame {
 	private JPanel contentPane;
 	private JPanel background_panel;
 
-	private JLabel background_label;
 	private JLabel logo_label;
 	private JLabel logotext_label;
 	private JLabel map_label;
@@ -48,12 +47,11 @@ public class GUImedium extends JFrame {
 	//Screen variables
 	private int[] screenSize = {1024,576};
 	private int[] screenPlacement = {100,100};
-	private int[] mapPosition = {7, 7}; //sets where the map is placed in relation to the top left corner
-	private int[] mapSize = {840, 550}; //control both the scaling of the mapImg and the size of the JLabel
+	private int[] mapPosition = {8, 8}; //sets where the map is placed in relation to the top left corner
+	private int[] mapSize = {840, 540}; //control both the scaling of the mapImg and the size of the JLabel
 	private int[] sidebarSize = {150, 549}; // control both the scaling of the sidebarImg and the size of the JLabel
 	
 	//Resource variables
-	private BufferedImage backgroundImg;
 	private BufferedImage logoImg;
 	private BufferedImage logotextImg;
 	private BufferedImage mapImg;
@@ -61,7 +59,7 @@ public class GUImedium extends JFrame {
 	private BufferedImage compassImg;
 	private BufferedImage starImg;
 
-	private BufferedImage animationImg;
+	private ImageIcon helpAni;
 	private ImageIcon markerAni;
 
 	
@@ -107,62 +105,51 @@ public class GUImedium extends JFrame {
 	
 	//Load all resources
 	public void loadResources(){
-		try {
-			backgroundImg = ImageIO.read(new File("res/backgroundscreen.png"));
-			if(Constants.DEBUG){System.out.println("backgroundImg loaded");}
-		} catch (IOException e) {
-			if(Constants.DEBUG){System.out.println("backgroundImg not found");}
-		}
 		
 		try {
-			logoImg = ImageIO.read(new File("res/logoscreen.png"));
+			logoImg = ImageIO.read(new File("res/icon_logo.png"));
 			if(Constants.DEBUG){System.out.println("logoImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("logoImg not found");}
 		}
 		
 		try {
-			mapImg = ImageIO.read(new File("res/map.png"));
+			mapImg = ImageIO.read(new File("res/map_b105.png"));
 			if(Constants.DEBUG){System.out.println("mapImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("mapImg not found");}
 		}
 
 		try {
-			sidebarImg = ImageIO.read(new File("res/sidebarscreen.png"));
+			sidebarImg = ImageIO.read(new File("res/sidebar.png"));
 			if(Constants.DEBUG){System.out.println("sidebarImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("sidebarImg not found");}
 		}
 		
 		try {
-			compassImg = ImageIO.read(new File("res/compass_icon.png"));
+			compassImg = ImageIO.read(new File("res/icon_compass.png"));
 			if(Constants.DEBUG){System.out.println("compassImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("compassImg not found");}
 		}
 		
 		try {
-			starImg = ImageIO.read(new File("res/star_icon.png"));
+			starImg = ImageIO.read(new File("res/icon_star.png"));
 			if(Constants.DEBUG){System.out.println("starImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("starImg not found");}
 		}
 		
 		try {
-			animationImg = ImageIO.read(new File("res/animationscreen.png"));
-			if(Constants.DEBUG){System.out.println("animationImg loaded");}
-		} catch (IOException e) {
-			if(Constants.DEBUG){System.out.println("animationImg not found");}
-		}
-		try {
-			logotextImg = ImageIO.read(new File("res/logotextscreen.png"));
+			logotextImg = ImageIO.read(new File("res/text_logo.png"));
 			if(Constants.DEBUG){System.out.println("logotextImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("logotextImg not found");}
 		}
 		
-		markerAni = new ImageIcon("res/waveRadar.gif");
+		helpAni = new ImageIcon("res/ani_help130.gif");
+		markerAni = new ImageIcon("res/ani_marker200.gif");
 		
 	}
 	
@@ -187,14 +174,14 @@ public class GUImedium extends JFrame {
 		
 		//LOGOTEXT
 		logotext_label = new JLabel();
-		logotext_label.setBounds(870, 440, 142, 98 );
-		logotext_label.setIcon(new ImageIcon(logotextImg.getScaledInstance(142, 98, Image.SCALE_SMOOTH)));
+		logotext_label.setBounds(870, 440, 142, 90 );
+		logotext_label.setIcon(new ImageIcon(logotextImg.getScaledInstance(142, 90, Image.SCALE_SMOOTH)));
 		background_panel.add(logotext_label);
 		
 		//ANIMATION
 		animation_label = new JLabel();
 		animation_label.setBounds(875, 28, 130, 130 );
-		animation_label.setIcon(new ImageIcon(animationImg.getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+		animation_label.setIcon(helpAni);
 		background_panel.add(animation_label);
 		
 		//SIDEBAR BACKGROUND
@@ -211,33 +198,25 @@ public class GUImedium extends JFrame {
 			markerLbl.get(i).setIcon(markerAni);
 			background_panel.add(markerLbl.get(i));
 		}
-		
+		/*
 		//COMPASS
 		compass_label = new JLabel();
 		compass_label.setBounds(18, 450, 80, 80 );
 		compass_label.setIcon(new ImageIcon(compassImg.getScaledInstance (80, 80, Image.SCALE_SMOOTH)));
 		background_panel.add(compass_label);
-		
+		*/
 		//STAR
 		star_label = new JLabel();
-		star_label.setBounds(300, 300, 50, 50 );
-		star_label.setIcon(new ImageIcon(starImg.getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+		star_label.setBounds(620, 420, 70, 70 );
+		star_label.setIcon(new ImageIcon(starImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)));
 		background_panel.add(star_label);
 		
 		//MAP
 		map_label = new JLabel();
 		map_label.setBounds(mapPosition[0], mapPosition[1], mapSize[0], mapSize[1]);
-		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance(mapSize[0], mapSize[1], Image.SCALE_SMOOTH)));
+		map_label.setIcon(new ImageIcon(mapImg.getScaledInstance(mapSize[0], mapSize[1], Image.SCALE_REPLICATE)));
 		background_panel.add(map_label);
 		
-		
-		/*
-		//BACKGROUND
-		background_label = new JLabel();
-		background_label.setBounds(0,0,screenSize[0],screenSize[1]);
-		background_label.setIcon(new ImageIcon(backgroundImg.getScaledInstance(screenSize[0], screenSize[1], Image.SCALE_SMOOTH)));
-		background_panel.add(background_label);
-		*/
 	}
 	
 	//Checks firebase continuously and update marker locations 
