@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class GUImedium extends JFrame {
+public class GUIlarge extends JFrame {
 	
 	
 	//////////////////////////////////////////////////
@@ -45,11 +45,12 @@ public class GUImedium extends JFrame {
 	private ArrayList<JLabel> markerLbl;
 	
 	//Screen variables
-	private int[] screenSize = {1024,576};
+	private int[] screenSize = {1900,1060};
 	private int[] screenPlacement = {100,100};
 	private int[] mapPosition = {8, 8}; //sets where the map is placed in relation to the top left corner
-	private int[] mapSize = {840, 540}; //control both the scaling of the mapImg and the size of the JLabel
-	private int[] sidebarSize = {150, 549}; // control both the scaling of the sidebarImg and the size of the JLabel
+	private int[] mapSize = {1500, 1020}; //control both the scaling of the mapImg and the size of the JLabel
+	private int[] sidebarPosition = {1520,6};
+	private int[] sidebarSize = {370, 1040}; // control both the scaling of the sidebarImg and the size of the JLabel
 	
 	//Resource variables
 	private BufferedImage logoImg;
@@ -72,7 +73,7 @@ public class GUImedium extends JFrame {
 			public void run() {
 				try {
 					
-					GUImedium frame = new GUImedium();
+					GUIlarge frame = new GUIlarge();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -86,7 +87,7 @@ public class GUImedium extends JFrame {
 	// Constructor
 	// 
 	
-	public GUImedium() {
+	public GUIlarge() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(screenPlacement[0], screenPlacement[1], screenSize[0], screenSize[1]);
 		setResizable(false);
@@ -114,7 +115,7 @@ public class GUImedium extends JFrame {
 		}
 		
 		try {
-			mapImg = ImageIO.read(new File("res/map_studietorget.png"));
+			mapImg = ImageIO.read(new File("res/map_studietorget1080.png"));
 			if(Constants.DEBUG){System.out.println("mapImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("mapImg not found");}
@@ -148,7 +149,7 @@ public class GUImedium extends JFrame {
 			if(Constants.DEBUG){System.out.println("logotextImg not found");}
 		}
 		
-		helpAni = new ImageIcon("res/ani_help130.gif");
+		helpAni = new ImageIcon("res/ani_help330.gif");
 		markerAni = new ImageIcon("res/ani_marker200.gif");
 		
 	}
@@ -168,25 +169,25 @@ public class GUImedium extends JFrame {
 		
 		//LOGO
 		logo_label = new JLabel();
-		logo_label.setBounds(875, 295, 130, 130 );
-		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+		logo_label.setBounds(sidebarPosition[0]+35, 480, sidebarSize[0]-70, sidebarSize[0]-70 );
+		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(sidebarSize[0]-70, sidebarSize[0]-70, Image.SCALE_SMOOTH)));
 		background_panel.add(logo_label);
 		
 		//LOGOTEXT
 		logotext_label = new JLabel();
-		logotext_label.setBounds(870, 440, 142, 90 );
-		logotext_label.setIcon(new ImageIcon(logotextImg.getScaledInstance(142, 90, Image.SCALE_SMOOTH)));
+		logotext_label.setBounds(sidebarPosition[0]+10, 780, sidebarSize[0]-20, sidebarSize[0]-130 );
+		logotext_label.setIcon(new ImageIcon(logotextImg.getScaledInstance(sidebarSize[0]-20, sidebarSize[0]-130, Image.SCALE_SMOOTH)));
 		background_panel.add(logotext_label);
 		
 		//ANIMATION
 		animation_label = new JLabel();
-		animation_label.setBounds(875, 28, 130, 130 );
+		animation_label.setBounds(sidebarPosition[0]+20, 28, 330, 330 );
 		animation_label.setIcon(helpAni);
 		background_panel.add(animation_label);
 		
 		//SIDEBAR BACKGROUND
 		sidebar_label = new JLabel();
-		sidebar_label.setBounds(865, 7, sidebarSize[0], sidebarSize[1] );
+		sidebar_label.setBounds(sidebarPosition[0], sidebarPosition[1], sidebarSize[0], sidebarSize[1] );
 		sidebar_label.setIcon(new ImageIcon(sidebarImg.getScaledInstance(sidebarSize[0], sidebarSize[1], Image.SCALE_SMOOTH)));
 		background_panel.add(sidebar_label);
 		
@@ -205,12 +206,13 @@ public class GUImedium extends JFrame {
 		compass_label.setIcon(new ImageIcon(compassImg.getScaledInstance (80, 80, Image.SCALE_SMOOTH)));
 		background_panel.add(compass_label);
 		*/
+		/*
 		//STAR
 		star_label = new JLabel();
 		star_label.setBounds(620, 420, 70, 70 );
 		star_label.setIcon(new ImageIcon(starImg.getScaledInstance(70, 70, Image.SCALE_SMOOTH)));
 		background_panel.add(star_label);
-		
+		*/
 		//MAP
 		map_label = new JLabel();
 		map_label.setBounds(mapPosition[0], mapPosition[1], mapSize[0], mapSize[1]);
@@ -262,4 +264,3 @@ public class GUImedium extends JFrame {
 	}
 	
 }
-
