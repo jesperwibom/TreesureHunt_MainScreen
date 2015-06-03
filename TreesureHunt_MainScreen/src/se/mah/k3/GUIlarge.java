@@ -41,6 +41,7 @@ public class GUIlarge extends JFrame {
 	private JLabel compass_label;
 	private JLabel star_label;
 	private JLabel animation_label;
+	private JLabel download_label;
 	
 	private ArrayList<JLabel> markerLbl;
 	
@@ -59,10 +60,12 @@ public class GUIlarge extends JFrame {
 	private BufferedImage sidebarImg;
 	private BufferedImage compassImg;
 	private BufferedImage starImg;
+	private BufferedImage googleImg;
 
 	private ImageIcon helpAni;
 	private ImageIcon markerAni;
 
+	private Color backColor;
 	
 	//////////////////////////////////////////////////
 	// Main
@@ -149,9 +152,16 @@ public class GUIlarge extends JFrame {
 			if(Constants.DEBUG){System.out.println("logotextImg not found");}
 		}
 		
+		try {
+			googleImg = ImageIO.read(new File("res/googleplay.png"));
+			if(Constants.DEBUG){System.out.println("googleImg loaded");}
+		} catch (IOException e) {
+			if(Constants.DEBUG){System.out.println("googleImg not found");}
+		}
+		
 		helpAni = new ImageIcon("res/ani_help330.gif");
 		markerAni = new ImageIcon("res/ani_marker200.gif");
-		
+		backColor = new Color(199,210,235);
 	}
 	
 	//Set up all frame elements in the correct order and location
@@ -165,25 +175,31 @@ public class GUIlarge extends JFrame {
 		background_panel = new JPanel();
 		contentPane.add(background_panel, BorderLayout.CENTER);
 		background_panel.setLayout(null);
-		background_panel.setBackground(new Color(195,205,210));
+		background_panel.setBackground(backColor);
 		
 		//LOGO
 		logo_label = new JLabel();
-		logo_label.setBounds(sidebarPosition[0]+35, 480, sidebarSize[0]-70, sidebarSize[0]-70 );
+		logo_label.setBounds(sidebarPosition[0]+35, 50, sidebarSize[0]-70, sidebarSize[0]-70 );
 		logo_label.setIcon(new ImageIcon(logoImg.getScaledInstance(sidebarSize[0]-70, sidebarSize[0]-70, Image.SCALE_SMOOTH)));
 		background_panel.add(logo_label);
 		
 		//LOGOTEXT
 		logotext_label = new JLabel();
-		logotext_label.setBounds(sidebarPosition[0]+10, 780, sidebarSize[0]-20, sidebarSize[0]-130 );
-		logotext_label.setIcon(new ImageIcon(logotextImg.getScaledInstance(sidebarSize[0]-20, sidebarSize[0]-130, Image.SCALE_SMOOTH)));
+		logotext_label.setBounds(sidebarPosition[0]+40, 385, sidebarSize[0]-80, sidebarSize[0]-200 );
+		logotext_label.setIcon(new ImageIcon(logotextImg.getScaledInstance(sidebarSize[0]-80, sidebarSize[0]-200, Image.SCALE_SMOOTH)));
 		background_panel.add(logotext_label);
 		
 		//ANIMATION
 		animation_label = new JLabel();
-		animation_label.setBounds(sidebarPosition[0]+20, 28, 330, 330 );
+		animation_label.setBounds(sidebarPosition[0]+20, 580, 330, 330 );
 		animation_label.setIcon(helpAni);
 		background_panel.add(animation_label);
+		
+		//GOOGLE
+		download_label = new JLabel();
+		download_label.setBounds(sidebarPosition[0]+160, 930, 180, 60 );
+		download_label.setIcon(new ImageIcon(googleImg.getScaledInstance(180, 60, Image.SCALE_SMOOTH)));
+		background_panel.add(download_label);
 		
 		//SIDEBAR BACKGROUND
 		sidebar_label = new JLabel();
