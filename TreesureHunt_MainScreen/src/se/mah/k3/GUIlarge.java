@@ -118,7 +118,7 @@ public class GUIlarge extends JFrame {
 		}
 		
 		try {
-			mapImg = ImageIO.read(new File("res/map_studietorget1080.png"));
+			mapImg = ImageIO.read(new File("res/map_b1051080.png"));
 			if(Constants.DEBUG){System.out.println("mapImg loaded");}
 		} catch (IOException e) {
 			if(Constants.DEBUG){System.out.println("mapImg not found");}
