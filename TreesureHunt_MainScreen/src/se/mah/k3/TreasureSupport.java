@@ -40,6 +40,7 @@ public class TreasureSupport {
 	// min = 40  max = 905
 	
 	public void setupTreasureLocations(){	
+		
 		treasureLocations.add(new Treasure("TL01",130,700));
 		treasureLocations.add(new Treasure("TL02",270,750));
 		treasureLocations.add(new Treasure("TL03",350,700));
@@ -51,19 +52,19 @@ public class TreasureSupport {
 		treasureLocations.add(new Treasure("TL08",550,700));
 		treasureLocations.add(new Treasure("TL09",700,650));
 		treasureLocations.add(new Treasure("TL10",750,720));
-		/*
-		treasureLocations.add(new Treasure("TL11",800,921));
-		treasureLocations.add(new Treasure("TL12",235,180));
-		treasureLocations.add(new Treasure("TL13",324,459));
-		treasureLocations.add(new Treasure("TL14",608,29));
-		treasureLocations.add(new Treasure("TL15",972,29));
 		
-		treasureLocations.add(new Treasure("TL16",60,565));
-		treasureLocations.add(new Treasure("TL17",30,29));
-		treasureLocations.add(new Treasure("TL18",400,29));
-		treasureLocations.add(new Treasure("TL19",370,740));
-		treasureLocations.add(new Treasure("TL20",972,650));
-		*/
+		treasureLocations.add(new Treasure("TL11",200,750));
+		treasureLocations.add(new Treasure("TL12",335,390));
+		treasureLocations.add(new Treasure("TL13",424,459));
+		treasureLocations.add(new Treasure("TL14",608,299));
+		treasureLocations.add(new Treasure("TL15",972,722));
+		
+		treasureLocations.add(new Treasure("TL16",90,565));
+		treasureLocations.add(new Treasure("TL17",120,409));
+		treasureLocations.add(new Treasure("TL18",580,390));
+		treasureLocations.add(new Treasure("TL19",570,740));
+		treasureLocations.add(new Treasure("TL20",972,250));
+		
 	}
 	
 	//Generates ONE active treasure

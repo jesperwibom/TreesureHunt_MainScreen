@@ -6,7 +6,7 @@ public class Constants {
 	public static final boolean DEBUG = true;
 	
 	//Maximun number of active treasures
-	public static final int MAX_ACTIVE = 4;
+	public static final int MAX_ACTIVE = 20;
 	
 	//Number of different types of treasure
 	public static final int NBR_TYPES = 3; 
